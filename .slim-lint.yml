@@ -1,0 +1,6 @@
+linters:
+  LineLength:
+    max: 120
+
+  FileLength:
+    max: 200
