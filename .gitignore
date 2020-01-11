@@ -34,4 +34,10 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore code coverage
+/coverage
+
+config/database.yml
 .idea/
+
