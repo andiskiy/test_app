@@ -36,6 +36,7 @@ gem 'draper'
 gem 'foreman'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'simple_form'
 gem 'slim'
 
 group :development, :test do
