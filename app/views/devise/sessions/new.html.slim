@@ -1,18 +1,18 @@
-h2
-  | Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: 'email'
-  .field
-    = f.label :password
-    br
-    = f.password_field :password, autocomplete: 'current-password'
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit 'Log in'
-= render 'devise/shared/links'
+.az-signin-wrapper
+  .az-card-signin
+    h1.az-logo Авторизация
+    .az-signin-header
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form
+          .error
+            = render 'devise/shared/error_messages', resource: resource
+          .form-group
+            label Логин
+            = f.email_field :email, autofocus: true, placeholder: 'Введите ваш e-mail', class: 'form-control'
+          .form-group
+            label Пароль
+            = f.password_field :password, class: 'form-control', type: 'password', placeholder: 'Введите ваш пароль'
+          .form-group
+              = f.check_box :remember_me
+              label &nbsp; Запомнить меня
+          = f.button 'Войти', class: 'btn btn-az-primary btn-block'
