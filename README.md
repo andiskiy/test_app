@@ -1,24 +1,47 @@
-# README
+# Test-App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a RoR test application, which can work with external applications.
 
-Things you may want to cover:
+API is secured by jwt-tokens by using devise and devise-jwt gems.
 
-* Ruby version
+To authorize in app you should send the request which will return the JWT-token on Header. Then use this token on headers of each request. 
 
-* System dependencies
+The API can be scaled later by adding v2 version. 
 
-* Configuration
+## Used technologies
 
-* Database creation
+* Rails 6.0.2.1
+* Ruby 2.7.0
+* PostgreSQL
+* Puma
+* Authorization: `Devise`, `Devise-JWT` 
 
-* Database initialization
+## Getting Started
 
-* How to run the test suite
+Install [RVM](https://rvm.io/) with Ruby 2.7.0.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Copy:
+```
+cp config/database.yml.example config/database.yml
+```
+For `config/database.yml` update your `username/password`
 
-* ...
+Add rails credentials: `devise_jwt_secret_key`
+```
+EDITOR=nano rails credentials:edit
+```
+
+Install gems:
+```
+gem install bundler
+bundle install
+```
+
+##### Install DB
+
+```
+rake db:create
+rake db:migrate
+rake db:seed
+```
