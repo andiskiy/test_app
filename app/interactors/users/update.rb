@@ -1,18 +1,7 @@
 # frozen_string_literal: true
 
 module Users
-  class Update
-    include Interactor
-
-    delegate :user, to: :context
-
-    def call
-      user.assign_attributes(params)
-      context.fail!(errors: user.errors) unless user.valid?
-
-      user.save!
-    end
-
+  class Update < Save
     private
 
     def params

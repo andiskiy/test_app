@@ -5,6 +5,7 @@ module Admin
     before_action :authenticate_admin_user!
     before_action :set_user, only: %i[show edit update destroy]
     before_action :set_new_user, only: %i[new create]
+    before_action :set_form_user, only: %i[new edit create update]
 
     def index
       respond_to do |format|
@@ -24,8 +25,8 @@ module Admin
     def new; end
 
     def create
-      @user.assign_attributes(user_params)
-      if @user.save
+      result = Users::Create.call(user: @user, params: user_params)
+      if result.success?
         flash[:success] = "Пользователь #{@user.name} успешно создан!"
         redirect_to admin_user_path(@user)
       else
@@ -66,6 +67,10 @@ module Admin
 
     def set_new_user
       @user = User.new
+    end
+
+    def set_form_user
+      @user = UserForm.new(@user)
     end
   end
 end

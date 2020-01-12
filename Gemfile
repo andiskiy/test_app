@@ -39,6 +39,7 @@ gem 'foreman'
 gem 'interactor', '~> 3.0'
 gem 'kaminari'
 gem 'mini_magick'
+gem 'reform-rails'
 gem 'simple_form'
 gem 'slim'
 

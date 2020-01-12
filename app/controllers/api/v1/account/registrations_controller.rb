@@ -23,7 +23,7 @@ module Api
         end
 
         def update
-          result = Users::Update.call(user: current_user, params: account_update_params)
+          result = Users::Update.call(user: UserForm.new(resource), params: account_update_params)
           render_resource(result.user)
         end
 

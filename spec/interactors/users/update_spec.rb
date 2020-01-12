@@ -11,7 +11,7 @@ RSpec.describe Users::Update do
 
     let(:params) do
       {
-        user: user,
+        user: UserForm.new(user),
         params: {
           name: name,
           password: password,
@@ -23,14 +23,14 @@ RSpec.describe Users::Update do
     context 'when valid' do
       context 'with password' do
         it { expect(context).to be_success }
-        it { expect(context.user.reload.name).to eq(name) }
+        it { expect(context.user.model.reload.name).to eq(name) }
       end
 
       context 'without password' do
         let(:password) { '' }
 
         it { expect(context).to be_success }
-        it { expect(context.user.reload.name).to eq(name) }
+        it { expect(context.user.model.reload.name).to eq(name) }
       end
     end
 
@@ -40,7 +40,7 @@ RSpec.describe Users::Update do
         let(:password_confirmation) { '' }
 
         it { expect(context).not_to be_success }
-        it { expect(context.user.reload.name).not_to eq(name) }
+        it { expect(context.user.model.reload.name).not_to eq(name) }
       end
 
       context 'without name' do
@@ -49,7 +49,7 @@ RSpec.describe Users::Update do
         let(:password_confirmation) { '123123' }
 
         it { expect(context).not_to be_success }
-        it { expect(context.user.reload.name).not_to eq(name) }
+        it { expect(context.user.model.reload.name).not_to eq(name) }
       end
     end
   end
