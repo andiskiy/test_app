@@ -30,8 +30,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'active_model_serializers'
 gem 'carrierwave', '~> 2.0'
 gem 'devise'
+gem 'devise-jwt'
 gem 'draper'
 gem 'foreman'
 gem 'interactor', '~> 3.0'
