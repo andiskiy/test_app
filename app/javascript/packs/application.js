@@ -10,6 +10,12 @@ require('turbolinks').start()
 require('@rails/activestorage').start()
 require('channels')
 
+var requireTest = require.context('./components', true)
+requireTest.keys().forEach(requireTest)
+
+import './src/datatables.min'
+import './app'
+
 
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)

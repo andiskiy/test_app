@@ -1,0 +1,5 @@
+- flash.each do |name, value|
+  .alert.mg-b-15 class="alert-#{name}" role='alert'
+    button.close aria-label='Close' data-dismiss='alert' type='button'
+      span aria-hidden='true'  ×
+    = value

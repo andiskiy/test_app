@@ -1,0 +1,12 @@
+= link_to 'Создать пользователя', new_user_path, class: 'btn btn-az-primary mg-b-20'
+
+.dataTables_wrapper
+  table#users_table.table.dataTable.datatable.mg-b-0[ data-url="#{users_path}" ]
+    thead
+      tr
+        th ID
+        th Имя
+        th Email
+        th Дата создания
+        th Дата обновления
+    tbody

@@ -1,0 +1,29 @@
+= link_to 'Редактировать пользователя', edit_user_path(@user), class: 'btn btn-primary mb-5'
+
+= link_to 'Удалить пользователя',
+          user_path(@user),
+          method: :delete,
+          class: 'btn btn-danger mg-l-10 mb-5',
+          data: { confirm: 'Вы уверены?' }
+
+.card
+  .card-header
+    .card-title.mg-b-0 Пользователь
+  .card-body
+    .row
+      .col-12#user-details
+        .az-content-body.az-content-body-invoice.ps--active-y
+          .card.card-invoice
+            .card-body
+              .col-12.mg-b-15
+                .az-img-user.avatar-xxl
+                  = @user.display_avatar
+                h4.mg-t-15.az-content-label = @user.name
+              .invoice-header
+                .col-12
+                  p.invoice-info-row
+                    = @user.generate_i18n(User, :email, @user.email)
+                  p.invoice-info-row
+                    = @user.generate_i18n(User, :created_at, @user.display_created_at)
+                  p.invoice-info-row
+                    = @user.generate_i18n(User, :updated_at, @user.display_updated_at)

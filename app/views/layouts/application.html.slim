@@ -7,5 +7,10 @@ html
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  body
-    = yield
+  body.az-body.az-light[data-page=body_data_page]
+    = render 'shared/navbar'
+    .az-content.az-content-dashboard
+      .container
+        .az-content-body
+          = render 'shared/flash'
+          = yield

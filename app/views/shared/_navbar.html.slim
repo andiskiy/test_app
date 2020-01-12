@@ -1,0 +1,33 @@
+.az-header
+  .container
+    .az-header-left
+      = link_to root_path, class: 'az-logo' do
+        span
+        | TestApp
+      #azMenuShow.az-header-menu-icon.d-lg-none
+        span
+
+    .az-header-menu
+      ul.nav
+        li.nav-item
+          a.nav-link.with-sub href='javascript:;'  Обзор
+          .az-menu-sub
+            nav.nav
+             a.nav-link href='javascript:;' Dashboard
+
+    .az-header-right
+      .dropdown.az-profile-menu
+        a.az-img-user href='javascript:;'
+          img alt='avatar' src='https://via.placeholder.com/500'
+        .dropdown-menu
+          .az-dropdown-header.d-sm-none
+            a.az-header-arrow href='javascript:;'
+              i.icon.ion-md-arrow-back
+          .az-header-profile
+            .az-img-user
+              img alt='avatar' src='https://via.placeholder.com/500'
+            span = current_admin_user.email
+            span Admin
+          = link_to destroy_admin_user_session_path, class: 'dropdown-item', method: :delete do
+            i.typcn.typcn-power-outline
+            | Выйти
