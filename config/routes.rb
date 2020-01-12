@@ -2,9 +2,11 @@
 
 Rails.application.routes.draw do
   devise_for :admin_users, path: 'admin'
-  # devise_for :users
+  namespace :admin do
+    resources :users
 
-  resources :users
+    get '/', to: 'users#index'
+  end
 
-  root 'users#index'
+  root 'admin/users#index'
 end

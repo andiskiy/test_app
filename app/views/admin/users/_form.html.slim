@@ -1,4 +1,4 @@
-= simple_form_for @user do |f|
+= simple_form_for [:admin, @user] do |f|
   .row.row-xs.align-items-center.mg-b-20
     .col-md-12.mg-t-5
       = f.input :name, input_html: { class: 'form-control' }
@@ -13,4 +13,4 @@
 
   .row.row-xs.align-items-center.mg-b-2
     = f.submit 'Сохранить', class: 'btn btn-success'
-    = link_to 'Отменить', users_path, class: 'btn btn-secondary mg-l-15'
+    = link_to 'Отменить', admin_users_path, class: 'btn btn-secondary mg-l-15'

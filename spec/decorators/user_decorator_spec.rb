@@ -7,7 +7,7 @@ RSpec.describe UserDecorator do
 
   describe '.display_user_link' do
     let(:user_link) do
-      "<a href=\"/users/#{user.id}\">#{user.name}</a>"
+      "<a href=\"/admin/users/#{user.id}\">#{user.name}</a>"
     end
 
     it { expect(context.display_user_link).to eq(user_link) }

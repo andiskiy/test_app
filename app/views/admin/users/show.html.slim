@@ -1,7 +1,7 @@
-= link_to 'Редактировать пользователя', edit_user_path(@user), class: 'btn btn-primary mb-5'
+= link_to 'Редактировать пользователя', edit_admin_user_path(@user), class: 'btn btn-primary mb-5'
 
 = link_to 'Удалить пользователя',
-          user_path(@user),
+          admin_user_path(@user),
           method: :delete,
           class: 'btn btn-danger mg-l-10 mb-5',
           data: { confirm: 'Вы уверены?' }

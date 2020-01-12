@@ -1,3 +1,3 @@
-class TestApp.UsersIndex
+class TestApp.AdminUsersIndex
   @init: ->
     TestApp.UserDataTable.init()
