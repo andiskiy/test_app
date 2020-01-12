@@ -2,7 +2,7 @@
 
 module Response
   def json_response(obj, status = :ok)
-    render json: { data: obj }, status: status
+    render json: obj, serializer: UserSerializer, status: status
   end
 
   def render_resource(resource)

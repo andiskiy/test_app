@@ -22,6 +22,8 @@ Rails.application.routes.draw do
           get    'account',        to: 'account/registrations#edit'
         end
       end
+
+      resources :users, only: %i[index show]
     end
   end
 
